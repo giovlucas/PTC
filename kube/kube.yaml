@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+template:
+  spec:
+    containers:
+      - name: redis
+        image: redis:7.0.9-alpine
+        resources:
+          limits:
+            memory: 600Mi
+            cpu: 1
+          requests:
+            memory: 300Mi
+            cpu: 500m
+      - name: busybox
+        image: busybox:1.36
+        resources:
+          limits:
+            memory: 200Mi
+            cpu: 300m
+          requests:
+            memory: 100Mi
+            cpu: 100m
